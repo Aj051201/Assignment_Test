@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  username: postgres  # Replace with your PostgreSQL username
+  password: PASSWORD  # Replace with your PostgreSQL password
+
+development:
+  <<: *default
+  database: milkdairy_development
+
+test:
+  <<: *default
+  database: milkdairy_test
+
+production:
+  <<: *default
+  database: milkdairy_production
+  username: postgres  # Replace with your PostgreSQL username
+  password: PASSWORD  # Replace with your PostgreSQL password
+  host: your_pg_host         # Optionally, specify your host if needed
